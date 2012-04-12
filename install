@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+echo "Installing 'Laptop'"
+curl -s https://raw.github.com/rachelober/laptop/master/mac
+
+echo "Installing Oh-My-Zsh!"
+curl -s https://raw.github.com/rachelober/oh-my-zsh/master/tools/install.sh | sh
+
+echo "Installing Janus"
+curl -Lo- http://bit.ly/janus-bootstrap
+
+echo "Installing dotfiles"
+curl -s https://raw.github.com/rachelober/dotfiles/master/tools/install.sh | sh
