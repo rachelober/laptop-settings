@@ -1,7 +1,10 @@
 Laptop-Settings
 ===============
 
-Inspired by the many projects out there that are easy scripts to execute to set up a new development machine.
+About
+-----
+
+Inspired by the many projects out there that are easy scripts to execute to set up a new development machine. This will pretty much get everything I need installed on a new Mac.
 
 What this installs
 ------------------
@@ -16,7 +19,7 @@ Installation
 
 Just run this wafer-thin line of code and let it do the rest of the work:
 
-    bash < <(curl -s https://raw.github.com/thoughtbot/laptop/master/ubuntu)
+    bash < <(curl -s https://raw.github.com/rachelober/laptop-settings/master/install)
 
 Help Out
 --------
