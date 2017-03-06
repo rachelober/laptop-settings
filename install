@@ -1,13 +1,28 @@
 #!/usr/bin/env bash
 
-echo "Installing 'Laptop'"
-curl -s https://raw.github.com/rachelober/laptop/master/mac
+cd
 
-echo "Installing Oh-My-Zsh!"
-curl -s https://raw.github.com/rachelober/oh-my-zsh/master/tools/install.sh | sh
+echo "Install thoughtbot's 'Laptop'"
+curl --remote-name https://raw.githubusercontent.com/thoughtbot/laptop/master/mac | sh
 
-echo "Installing Janus"
-curl -Lo- http://bit.ly/janus-bootstrap
+echo "Install 'Oh-My-Zsh!'"
+curl -s curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
-echo "Installing dotfiles"
-curl -s https://raw.github.com/rachelober/dotfiles/master/tools/install.sh | sh
+echo "Install 'Janus'"
+curl -L https://bit.ly/janus-bootstrap | bash
+
+echo "Clone dotfiles"
+git clone git@github.com:rachelober/dotfiles.git
+
+echo "Install thoughtbot's 'rcm'"
+brew tap thoughtbot/formulae
+brew install rcm
+
+echo "Linking dotfiles"
+rcup -v
+
+echo "Start ssh-agent and add key"
+ssh-add
+
+echo "Install MacVim"
+brew install macvim
