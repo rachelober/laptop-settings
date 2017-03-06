@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+cd
+
+echo "Update 'Oh-My-Zsh!'"
+  cd ~/.oh-my-zsh
+  git pull origin master
+
+echo "Update 'Janus'"
+  cd ~/.vim
+  rake
+
+echo "Update dotfiles"
+  cd ~/.dotfiles
+  git pull origin master
+
+echo "Linking dotfiles"
+  rcup -v
