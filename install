@@ -59,3 +59,24 @@ else
   echo "Installing MacVim"
   brew install macvim
 fi
+
+if [ "$(brew ls --versions shellcheck)" ]; then
+  echo "Skipping shellcheck"
+else
+  echo "Installing shellcheck"
+  brew install shellcheck
+fi
+
+if [ "$(brew ls --versions ack)" ]; then
+  echo "Skipping ack"
+else
+  echo "Installing ack"
+  brew install ack
+fi
+
+if [ "$(brew ls --versions ctags)" ]; then
+  echo "Skipping ctags"
+else
+  echo "Installing ctags"
+  brew install ctags
+fi
