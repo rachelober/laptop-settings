@@ -1,18 +1,29 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-cd
+# shellcheck disable=SC1091
+. "pretty_print"
 
-echo "Update 'Oh-My-Zsh!'"
-  cd ~/.oh-my-zsh
-  git pull origin master
+cd "$HOME" || exit
 
-echo "Update 'Janus'"
-  cd ~/.vim
-  rake
+pretty_print "Run brew doctor"
+brew doctor
 
-echo "Update dotfiles"
-  cd ~/.dotfiles
-  git pull origin master
+pretty_print "Update brew"
+brew update
 
-echo "Linking dotfiles"
-  rcup -v
+pretty_print "Upgrade MacVim"
+brew upgrade macvim
+
+pretty_print "Upgrade ruby-build"
+brew upgrade ruby-build
+
+pretty_print "Run brew cleanup"
+brew cleanup
+
+pretty_print "Update 'Oh-My-Zsh!'"
+cd ~/.oh-my-zsh || exit
+git pull origin master
+
+pretty_print "Update 'Janus'"
+cd ~/.vim || exit
+rake
