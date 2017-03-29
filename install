@@ -1,83 +1,86 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-cd
+# shellcheck disable=SC1091
+. "pretty_print"
+
+cd "$HOME" || exit
 
 if [ -d "$(xcode-select -p)" ]; then
-  echo "Skipping Xcode Command Line Tools"
+  warning_print "Skipping Xcode Command Line Tools"
 else
-  echo "Installing Xcode Command Line Tools"
+  pretty_print "Installing Xcode Command Line Tools"
   xcode-select --install
   sudo xcodebuild -license accept
 fi
 
-echo "Installing thoughtbot's 'Laptop'"
+pretty_print "Installing thoughtbot's 'Laptop'"
 curl --remote-name https://raw.githubusercontent.com/thoughtbot/laptop/master/mac | sh
 
 if [ -d "$HOME/.oh-my-zsh" ]; then
-  echo "Skipping 'Oh-My-Zsh!'"
+  warning_print "Skipping 'Oh-My-Zsh!'"
 else
-  echo "Installing 'Oh-My-Zsh!'"
+  pretty_print "Installing 'Oh-My-Zsh!'"
   curl -s curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 fi
 
 if [ -d "$HOME/.vim/janus" ]; then
-  echo "Skipping 'Janus'"
+  warning_print "Skipping 'Janus'"
 else
-  echo "Installing 'Janus'"
+  pretty_print "Installing 'Janus'"
   curl -L https://bit.ly/janus-bootstrap | bash
 fi
 
 if [ -d "$HOME/.dotfiles" ]; then
-  echo "Skipping dotfiles"
+  warning_print "Skipping dotfiles"
 else
-  echo "Cloning dotfiles"
+  pretty_print "Cloning dotfiles"
   git clone git@github.com:rachelober/dotfiles.git
 fi
 
-echo "Linking dotfiles"
+pretty_print "Linking dotfiles"
 rcup -v
 
 if [ -f "$HOME/.ssh/id_rsa" ]; then
-  echo "Skipping SSH key generation"
+  warning_print "Skipping SSH key generation"
 else
-  echo "Creating SSH key"
+  pretty_print "Creating SSH key"
   ssh-keygen -t rsa
 
-  echo "Copied public SSH key to clipboard"
+  pretty_print "Copied public SSH key to clipboard"
   pbcopy < ~/.ssh/id_rsa.pub
 
-  echo "Opening GitHub, please add SSH key to account"
+  pretty_print "Opening GitHub, please add SSH key to account"
   open "https://github.com/settings/keys"
 
-  echo "Starting ssh-agent and adding SSH key"
+  pretty_print "Starting ssh-agent and adding SSH key"
   ssh-add
 fi
 
 if [ "$(brew ls --versions macvim)" ]; then
-  echo "Skipping MacVim"
+  warning_print "Skipping MacVim"
 else
-  echo "Installing MacVim"
+  pretty_print "Installing MacVim"
   brew install macvim
 fi
 
 if [ "$(brew ls --versions shellcheck)" ]; then
-  echo "Skipping shellcheck"
+  warning_print "Skipping shellcheck"
 else
-  echo "Installing shellcheck"
+  pretty_print "Installing shellcheck"
   brew install shellcheck
 fi
 
 if [ "$(brew ls --versions ack)" ]; then
-  echo "Skipping ack"
+  warning_print "Skipping ack"
 else
-  echo "Installing ack"
+  pretty_print "Installing ack"
   brew install ack
 fi
 
 if [ "$(brew ls --versions ctags)" ]; then
-  echo "Skipping ctags"
+  warning_print "Skipping ctags"
 else
-  echo "Installing ctags"
+  pretty_print "Installing ctags"
   brew install ctags
 fi
 
