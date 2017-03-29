@@ -2,27 +2,60 @@
 
 cd
 
-echo "Install thoughtbot's 'Laptop'"
+if [ -d "$(xcode-select -p)" ]; then
+  echo "Skipping Xcode Command Line Tools"
+else
+  echo "Installing Xcode Command Line Tools"
+  xcode-select --install
+  sudo xcodebuild -license accept
+fi
+
+echo "Installing thoughtbot's 'Laptop'"
 curl --remote-name https://raw.githubusercontent.com/thoughtbot/laptop/master/mac | sh
 
-echo "Install 'Oh-My-Zsh!'"
-curl -s curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+if [ -d "$HOME/.oh-my-zsh" ]; then
+  echo "Skipping 'Oh-My-Zsh!'"
+else
+  echo "Installing 'Oh-My-Zsh!'"
+  curl -s curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+fi
 
-echo "Install 'Janus'"
-curl -L https://bit.ly/janus-bootstrap | bash
+if [ -d "$HOME/.vim/janus" ]; then
+  echo "Skipping 'Janus'"
+else
+  echo "Installing 'Janus'"
+  curl -L https://bit.ly/janus-bootstrap | bash
+fi
 
-echo "Clone dotfiles"
-git clone git@github.com:rachelober/dotfiles.git
-
-echo "Install thoughtbot's 'rcm'"
-brew tap thoughtbot/formulae
-brew install rcm
+if [ -d "$HOME/.dotfiles" ]; then
+  echo "Skipping dotfiles"
+else
+  echo "Cloning dotfiles"
+  git clone git@github.com:rachelober/dotfiles.git
+fi
 
 echo "Linking dotfiles"
 rcup -v
 
-echo "Start ssh-agent and add key"
-ssh-add
+if [ -f "$HOME/.ssh/id_rsa" ]; then
+  echo "Skipping SSH key generation"
+else
+  echo "Creating SSH key"
+  ssh-keygen -t rsa
 
-echo "Install MacVim"
-brew install macvim
+  echo "Copied public SSH key to clipboard"
+  pbcopy < ~/.ssh/id_rsa.pub
+
+  echo "Opening GitHub, please add SSH key to account"
+  open "https://github.com/settings/keys"
+
+  echo "Starting ssh-agent and adding SSH key"
+  ssh-add
+fi
+
+if [ "$(brew ls --versions macvim)" ]; then
+  echo "Skipping MacVim"
+else
+  echo "Installing MacVim"
+  brew install macvim
+fi
