@@ -80,3 +80,8 @@ else
   echo "Installing ctags"
   brew install ctags
 fi
+
+brew tap caskroom/cask
+brew cask install google-chrome
+brew cask install pgadmin4
+# TODO: Add specific Mac App installation instructions
