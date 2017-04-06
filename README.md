@@ -1,6 +1,8 @@
 Laptop-Settings
 ===============
 
+[![BCH compliance](https://bettercodehub.com/edge/badge/rachelober/laptop-settings)](https://bettercodehub.com/)
+
 About
 -----
 
