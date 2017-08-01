@@ -58,6 +58,14 @@ else
   ssh-add
 fi
 
+if [ "$(brew ls --versions mackup)" ]; then
+  warning_print "Skipping Mackup"
+else
+  pretty_print "Installing Mackup"
+  brew install mackup
+  mackup restore
+fi
+
 if [ "$(brew ls --versions macvim)" ]; then
   warning_print "Skipping MacVim"
 else
