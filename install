@@ -38,10 +38,9 @@ if [ -d "$HOME/.dotfiles" ]; then
 else
   pretty_print "Cloning dotfiles"
   git clone git@github.com:rachelober/dotfiles.git
+  pretty_print "Linking dotfiles"
+  rcup -v
 fi
-
-pretty_print "Linking dotfiles"
-rcup -v
 
 if [ -f "$HOME/.ssh/id_rsa" ]; then
   warning_print "Skipping SSH key generation"
