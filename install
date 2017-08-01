@@ -5,6 +5,9 @@
 
 cd "$HOME" || exit
 
+pretty_print "Checking for Software Updates"
+sudo softwareupdate -i -a
+
 if [ -d "$(xcode-select -p)" ]; then
   warning_print "Skipping Xcode Command Line Tools"
 else
