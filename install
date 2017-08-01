@@ -19,6 +19,31 @@ fi
 pretty_print "Installing thoughtbot's 'Laptop'"
 curl --remote-name https://raw.githubusercontent.com/thoughtbot/laptop/master/mac | sh
 
+if [ "$(brew ls --versions mas-cli)" ]; then
+  warning_print "Skipping Mac App Store CLI (mas-cli)"
+else
+  pretty_print "Installing Mac App Store CLI (mas-cli)"
+  brew install argon/mas/mas
+fi
+
+pretty_print "Installing Mac Store Apps"
+# Mac Apps
+mas install 497799835   # Xcode
+mas install 409183694   # Keynote
+mas install 09203825    # Numbers
+mas install 409201541   # Pages
+# Third-Party Apps
+mas install 443987910   # 1Password
+mas install 659901392   # Coffitivity
+mas install 411643860   # DaisyDisk
+mas install 1055511498  # Day One
+mas install 1173932628  # Drop
+mas install 406056744   # Evernote
+mas install 866773894   # Quiver
+mas install 425955336   # Skitch
+mas install 926319434   # Stars
+mas install 799574890   # Timer
+
 if [ -d "$HOME/.oh-my-zsh" ]; then
   warning_print "Skipping 'Oh-My-Zsh!'"
 else
