@@ -119,6 +119,13 @@ else
   brew install ctags
 fi
 
+if [ "$(brew ls --versions the_silver_searcher)" ]; then
+  warning_print "Skipping the_silver_searcher"
+else
+  pretty_print "Installing the_silver_searcher"
+  brew install the_silver_searcher
+fi
+
 brew tap caskroom/cask
 brew cask install adobe-creative-cloud
 brew cask install alfred
