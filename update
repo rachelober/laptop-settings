@@ -5,6 +5,9 @@
 
 cd "$HOME" || exit
 
+pretty_print "Checking for Software Updates"
+sudo softwareupdate -i -a
+
 pretty_print "Run brew doctor"
 brew doctor
 
