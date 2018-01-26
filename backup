@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# shellcheck disable=SC1091
+. "pretty_print"
+
+cd "$HOME" || exit
+
+# dotfiles
+
+# laptop-settings
+
+# mackup
