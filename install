@@ -62,8 +62,12 @@ if [ -d "$HOME/.dotfiles" ]; then
   warning_print "Skipping dotfiles"
 else
   pretty_print "Cloning dotfiles"
+  mkdir -p "Development"
+  cd "Development" || exit
   git clone git@github.com:rachelober/dotfiles.git
   pretty_print "Linking dotfiles"
+  cd "$HOME" || exit
+  ln -s "$HOME"/dotfiles .dotfiles
   rcup -v
 fi
 
