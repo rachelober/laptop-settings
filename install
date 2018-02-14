@@ -92,7 +92,7 @@ if [ "$(brew ls --versions macvim)" ]; then
   warning_print "Skipping MacVim"
 else
   pretty_print "Installing MacVim"
-  brew install macvim
+  brew install macvim --override-system-vim
 fi
 
 if [ "$(brew ls --versions shellcheck)" ]; then
