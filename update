@@ -26,7 +26,3 @@ brew cleanup
 pretty_print "Update 'Oh-My-Zsh!'"
 cd ~/.oh-my-zsh || exit
 git pull origin master
-
-pretty_print "Update 'Janus'"
-cd ~/.vim || exit
-rake
