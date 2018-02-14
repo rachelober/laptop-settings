@@ -123,6 +123,13 @@ else
   brew install the_silver_searcher
 fi
 
+if [ "$(brew ls --versions tmux)" ]; then
+  warning_print "Skipping tmux"
+else
+  pretty_print "Installing tmux"
+  brew install tmux
+fi
+
 brew tap caskroom/cask
 brew cask install adobe-creative-cloud
 brew cask install alfred
@@ -136,6 +143,7 @@ brew cask install google-chrome-canary
 brew cask install grammarly
 brew cask install imageoptim
 brew cask install istat-menus
+brew cask install iterm2
 brew cask install knock
 brew cask install lastfm
 brew cask install macdown
