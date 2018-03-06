@@ -34,7 +34,6 @@ mas install 09203825    # Numbers
 mas install 409201541   # Pages
 # Third-Party Apps
 mas install 443987910   # 1Password
-mas install 659901392   # Coffitivity
 mas install 411643860   # DaisyDisk
 mas install 1055511498  # Day One
 mas install 1173932628  # Drop
@@ -134,7 +133,6 @@ brew tap caskroom/cask
 brew cask install adobe-creative-cloud
 brew cask install alfred
 brew cask install bartender
-brew cask install caffeine
 brew cask install dropbox
 #brew cask install flow
 brew cask install focus
@@ -144,17 +142,14 @@ brew cask install grammarly
 brew cask install imageoptim
 brew cask install istat-menus
 brew cask install iterm2
-brew cask install knock
 brew cask install lastfm
 brew cask install macdown
 brew cask install pgadmin4
 #brew cask install rememberthemilk
 brew cask install rescuetime
-brew cask install screenhero
 brew cask install sketch
 brew cask install slack
 brew cask install spectacle
-brew cask install sourcetree
 brew cask install spotify
 brew cask install stay
 brew cask install trailer
