@@ -17,6 +17,9 @@ brew update
 pretty_print "Updating git"
 brew upgrade git
 
+pretty_print "Updating tmux"
+brew upgrade tmux
+
 pretty_print "Upgrading vim"
 brew upgrade vim
 
