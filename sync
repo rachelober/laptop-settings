@@ -5,9 +5,13 @@
 
 cd . || exit
 
-pretty_print "Update dotfiles"
-cd ~/.dotfiles || exit
-git pull origin master
+pretty_print "Updating laptop-settings"
+cd ~/.laptop-settings || exit
+git pull --rebase origin master
 
-pretty_print "Link dotfiles"
+pretty_print "Updating dotfiles"
+cd ~/.dotfiles || exit
+git pull --rebase origin master
+
+pretty_print "Re-Linking dotfiles"
 rcup -v
