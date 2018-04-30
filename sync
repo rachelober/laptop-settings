@@ -1,10 +1,9 @@
 #!/bin/sh
 
-DIR="${BASH_SOURCE%/*}"
-if [ ! -d "$DIR" ]; then DIR="$PWD"; fi
-. "$(DIR)/pretty_print"
+# shellcheck disable=SC1091
+. "pretty_print"
 
-cd || exit
+cd . || exit
 
 pretty_print "Update dotfiles"
 cd ~/.dotfiles || exit
