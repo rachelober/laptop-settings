@@ -20,6 +20,12 @@ brew upgrade macvim
 pretty_print "Upgrading ruby-build"
 brew upgrade ruby-build
 
+pretty_print "Upgrading yarn"
+brew upgrade yarn
+
+pretty_print "Upgrading node"
+brew upgrade node
+
 pretty_print "Running brew cleanup"
 brew cleanup
 
