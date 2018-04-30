@@ -134,6 +134,7 @@ brew tap caskroom/fonts
 brew cask install font-inconsolata
 brew cask install font-source-code-pro
 
+# Install applications available from caskroom
 brew tap caskroom/cask
 brew cask install adobe-creative-cloud
 brew cask install alfred
