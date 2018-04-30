@@ -23,6 +23,9 @@ brew upgrade macvim
 pretty_print "Upgrading ruby-build"
 brew upgrade ruby-build
 
+pretty_print "Upgrading ruby"
+brew upgrade ruby
+
 pretty_print "Upgrading yarn"
 brew upgrade yarn
 
